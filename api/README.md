@@ -39,7 +39,7 @@ Path: `/api/users`
 Request body: `User resource` without id  
 
 Response: `User resource`  
-Success response code: 201  
+Success response code: `201`  
 
 
 #### User get
@@ -48,16 +48,16 @@ Method: `GET`
 Path: `/api/users/:id`  
 
 Response: `User resource`  
-Success response code: 200  
+Success response code: `200`  
 
-### Users list get
+#### Users list get
 
 Method: `GET` 
 Path: `/api/users`  
 Query params: `limit=(int)` and `offset=(int)`  
 
 Response: List of `User resource`  
-Success response code: 200  
+Success response code: `200`  
 Response example:
 ```json
 {
@@ -68,21 +68,21 @@ Response example:
 }
 ```
 
-### User update
+#### User update
 
 Method: `PATCH`  
 Path: `/api/users/:id`  
 Request body: `User resource` (can be partial) without id  
 
 Response: `User resource`  
-Success response code: 200  
+Success response code: `200`  
 
-### User delete
+#### User delete
 
 Method: `DELETE`  
 Path: `/api/users/:id`  
 
-Success response code: 204  
+Success response code: `204`  
 
 ## Testing
 

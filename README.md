@@ -1,31 +1,31 @@
-# Fullstack Developer Task
+# CRUD test app
 
-Create user management CRUD application.
-Separate frontend and backend into two different services.
-Backend should be a RESTful API.
-Create full `Users` resource.
+## Live demo
 
-Add availability to import random user from https://jsonplaceholder.typicode.com/ API
+API Client: https://ht-client.darneta.lt/  
+API: https://ht-api.darneta.lt/  
 
+## Documentation
 
-## Few simple steps
+* See api/README.md
+* See client/README.md
 
-1. Fork this repo
-2. Do your best
-3. Prepare pull request and let us know that you are done
+## Development server
 
-## Few simple requirements
+### Requirements
 
-- Design must be responsive. Because we live in our smartphones and we will check with them for sure.
-- Use popular PHP framework (Laravel, Lumen, Symfony, Zend or any other)
-- Use VueJS, AngularJS or ReactJS.
-- Use CSS preprocessor (SCSS preferred).
-- Browser support must be great. All modern browsers plus IE9 and above.
-- Use a Javascript task-runner. Webpack, Grunt or Gulp - it doesn't matter.
-- Do not commit the build, because we are building things on deployment.
+* Docker 18.09+ (might work on older too, not tested)
+* Docker-compose 1.14+ (might work on older too, not tested)
 
-## Few tips
+### Run
 
-- Structure! WE LOVE STRUCTURE!
-- Validate data.
-- Have fun!
+0. (optional) build containers `docker-compose -f docker-compose.dev.yml build`
+1. `docker-compose -f docker-compose.dev.yml up`
+2. Get fronted container ip `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' hostinger_test_client`
+3. Open browser at http://{FRONTEND_CONTAINER_IP}:4200
+
+### Run API tests
+
+1. Get inside container `docker exec -ti -u application hostinger_test_api bash`
+2. Get to project dir `cd /app`
+3. Run phpunit `./bin/phpunit`

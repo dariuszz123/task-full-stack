@@ -1,0 +1,40 @@
+<mat-card>
+    <mat-card-content class="page">
+        <div *ngIf="user">
+
+          <div class="col">
+            <h2>{{ user.username }}</h2>
+            <mat-list>
+                <mat-list-item>Name: <strong>{{ user.name }}</strong></mat-list-item>
+                <mat-list-item>Email: <strong>{{ user.email }}</strong></mat-list-item>
+                <mat-list-item>Phone: <strong>{{ user.phone }}</strong></mat-list-item>
+                <mat-list-item>Website: <strong>{{ user.website }}</strong></mat-list-item>
+            </mat-list>
+          </div>
+
+          <div class="col">
+            <h2>Address</h2>
+            <mat-list>
+                <mat-list-item>Street: <strong>{{ user.address.street }}</strong></mat-list-item>
+                <mat-list-item>Suite: <strong>{{ user.address.suite }}</strong></mat-list-item>
+                <mat-list-item>City: <strong>{{ user.address.city }}</strong></mat-list-item>
+                <mat-list-item>Zip code: <strong>{{ user.address.zipcode }}</strong></mat-list-item>
+
+                <mat-list-item>Lng: <strong>{{ user.address.geo.lng }}</strong></mat-list-item>
+                <mat-list-item>Lat: <strong>{{ user.address.geo.lat }}</strong></mat-list-item>
+            </mat-list>
+          </div>
+
+          <div class="col">
+            <h2>Comapny</h2>
+            <mat-list>
+                <mat-list-item>Name: <strong>{{ user.company.name }}</strong></mat-list-item>
+                <mat-list-item>Catch phrase: <strong>{{ user.company.catchPhrase }}</strong></mat-list-item>
+                <mat-list-item>BS: <strong>{{ user.company.bs }}</strong></mat-list-item>
+            </mat-list>
+          </div>
+          
+        </div>
+        <div *ngIf="!user && !loading">User not found!</div>
+    </mat-card-content>
+  </mat-card>

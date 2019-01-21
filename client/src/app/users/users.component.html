@@ -1,0 +1,29 @@
+<mat-card *ngFor="let u of users" class="user-card">
+  <mat-card-content>
+    <mat-card-title>{{u.username}}</mat-card-title>
+    <mat-card-subtitle>{{u.name}}</mat-card-subtitle>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <a mat-raised-button [routerLink]="['/user', u.id]">View</a>
+    <a mat-raised-button color="primary" [routerLink]="['/edit', u.id]">Edit</a>
+    <button mat-raised-button color="warn" [disabled]=loading (click)="delete(u.id)">Delete</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="!loading && users?.length == 0 && page == 1">
+  <mat-card-content>
+    <h3>No users not found.</h3>
+    <div><a mat-raised-button routerLink="/create">Create</a> or <a mat-raised-button routerLink="/import">Import</a> one.</div>
+  </mat-card-content>
+</mat-card>
+
+<div class="pagination" *ngIf="users?.length > 0">
+  <button mat-raised-button [disabled]=!prevUri (click)="prevPage()">
+    <mat-icon>navigate_before</mat-icon>
+  </button>
+
+  <button mat-raised-button [disabled]=!nextUri (click)="nextPage()">
+    <mat-icon>navigate_next</mat-icon>
+  </button>
+</div>

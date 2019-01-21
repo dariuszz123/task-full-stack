@@ -1,0 +1,4 @@
+FROM webdevops/php-nginx-dev:7.2
+ENV WEB_DOCUMENT_ROOT=/app/public
+COPY . /app
+CMD ["/app/bin/dev_start.sh"]

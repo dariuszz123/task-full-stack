@@ -1,0 +1,18 @@
+@media screen and (min-width: 960px) {
+    .col {
+        width: 33.33%;
+        float: left;
+    }
+}
+
+.page {
+    :after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    strong {
+        padding-left: 5px;
+    }
+}

@@ -1,0 +1,6 @@
+FROM node:10.15
+RUN apt-get update && npm install -g @angular/cli
+WORKDIR /usr/src/app
+COPY . /usr/src/app
+EXPOSE 4200
+CMD ["./bin/dev_start.sh"]

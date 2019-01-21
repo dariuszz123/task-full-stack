@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+
+  api:
+    image: dariuszz123/hg-fs-test-api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    links:
+    - db:db
+    expose:
+    - 80
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: api
+      MYSQL_PASSWORD: api
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: api
+#    volumes:
+#    - ./docker-volumes/api-db:/var/lib/mysql
+
+  client:
+    image: dariuszz123/hg-fs-test-client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    expose:
+    - 80

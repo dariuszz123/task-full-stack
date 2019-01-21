@@ -1,0 +1,9 @@
+rest_controller:
+    resource: App\Controller\UsersController
+    type: rest
+    prefix: /api
+
+index_controller:
+    resource: App\Controller\IndexController
+    type: annotation
+    prefix: /

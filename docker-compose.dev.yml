@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+
+  api:
+    image: dariuszz123/hg-fs-test-api:dev
+    container_name: hostinger_test_api
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+    volumes:
+    - ./api:/app
+    links:
+    - db:db
+    expose:
+    - 80
+
+  db:
+    image: mysql
+    container_name: hostinger_test_db
+    environment:
+      MYSQL_DATABASE: api
+      MYSQL_PASSWORD: api
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_USER: api
+
+  client:
+    image: dariuszz123/hg-fs-test-client:dev
+    container_name: hostinger_test_client
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    links:
+    - api:api
+    volumes:
+    - ./client:/usr/src/app
+    expose:
+    - 4200

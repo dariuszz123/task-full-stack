@@ -1,0 +1,96 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <mat-card>
+
+    <mat-card-content>
+        <mat-card-content>
+
+          <div>
+            <h3>User</h3>
+            <mat-form-field>
+                <input matInput formControlName="name" placeholder="Name">
+                <mat-error *ngFor="let error of formErrors.name">{{ error }}</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field>
+              <input matInput formControlName="username" placeholder="Username">
+              <mat-error *ngFor="let error of formErrors.username">{{ error }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput formControlName="email" placeholder="Email">
+                <mat-error *ngFor="let error of formErrors.email">{{ error }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput formControlName="phone" placeholder="Phone">
+                <mat-error *ngFor="let error of formErrors.phone">{{ error }}</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field>
+              <input matInput formControlName="website" placeholder="Website">
+              <mat-error *ngFor="let error of formErrors.website">{{ error }}</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div formGroupName="address" novalidate>
+              <h3>Address</h3>
+              <mat-form-field>
+                  <input matInput formControlName="street" placeholder="Street">
+                  <mat-error *ngFor="let error of formErrors.address.street">{{ error }}</mat-error>
+              </mat-form-field>
+              
+              <mat-form-field>
+                <input matInput formControlName="suite" placeholder="Suite">
+                <mat-error *ngFor="let error of formErrors.address.suite">{{ error }}</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field>
+                  <input matInput formControlName="city" placeholder="City">
+                  <mat-error *ngFor="let error of formErrors.address.city">{{ error }}</mat-error>
+              </mat-form-field>
+              
+              <mat-form-field>
+                <input matInput formControlName="zipcode" placeholder="Zipcode">
+                <mat-error *ngFor="let error of formErrors.address.zipcode">{{ error }}</mat-error>
+              </mat-form-field>
+
+              <div formGroupName="geo" novalidate>
+                <mat-form-field>
+                    <input matInput formControlName="lat" placeholder="lat">
+                    <mat-error *ngFor="let error of formErrors.address.geo.lat">{{ error }}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput formControlName="lng" placeholder="lng">
+                    <mat-error *ngFor="let error of formErrors.address.geo.lng">{{ error }}</mat-error>
+                </mat-form-field>
+              </div>
+          </div>
+
+          <div formGroupName="company" novalidate>
+              <h3>Company</h3>
+              <mat-form-field>
+                  <input matInput formControlName="name" placeholder="Name">
+                  <mat-error *ngFor="let error of formErrors.company.name">{{ error }}</mat-error>
+              </mat-form-field>
+              
+              <mat-form-field>
+                <input matInput formControlName="catchPhrase" placeholder="Catch phrase">
+                <mat-error *ngFor="let error of formErrors.company.catchPhrase">{{ error }}</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field>
+                  <input matInput formControlName="bs" placeholder="BS">
+                  <mat-error *ngFor="let error of formErrors.company.bs">{{ error }}</mat-error>
+              </mat-form-field>
+          </div>
+
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" [disabled]="loading" *ngIf="!user">Create</button>
+            <button mat-raised-button color="primary" [disabled]="loading" *ngIf="user">Update</button>
+          </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</form>

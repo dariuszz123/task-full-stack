@@ -10,7 +10,7 @@ class KernelResponseCORSHeaders
     {
         $response = $event->getResponse();
         $response->headers->set('Access-Control-Allow-Origin', '*', true);
-        $response->headers->set('Access-Control-Allow-Headers', '*', true);
+        $response->headers->set('Access-Control-Allow-Headers', 'Content-Type', true);
         $response->headers->set('Access-Control-Allow-Methods', '*', true);
     }
 }
